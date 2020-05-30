@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+ 
+    <div class="container"> 
+        
+            <div class="container">
+                <h4 class="shadow-lg p-3 mb-5  rounded   bg-info text-white"><%= title %></h4>
+          
+              
+        </div> 
+
+
+
+        <div class="container">
+            <div class="panel-title" style="font-weight: 900; font-size: large;"><i onclick="history.back()" class="fa fa-arrow-left"></i>Edit Contact</div>
+            <form action="/update/" class="form-horizontal" role="form" method="post">
+                <input type="hidden" name="id" value="<%= records._id %>">
+                <div class="form-group">
+                    <label for="name" >Name</label>
+                    
+                      <input type="text" class="form-control" name="uname"  value="<%= records.name %>" placeholder="Enter your name" required>
+                    
+                  </div>
+
+                   <% records.email.forEach(function(row, index){ %>
+                  <div class="form-group">
+                    <label for="email" ><%= index > 0 ? 'Other ': '' %>Email</label>
+                    
+                      <input type="text" class="form-control" name="email" value="<%= row %>" placeholder="Enter your Email" required>
+    
+                    
+                  </div>
+                  <% }) %>
+
+                  <% records.number.forEach(function(row, index){ %>
+                  <div class="form-group" >
+                    <label for="emptype" ><%= index > 0 ? 'Other ': '' %>Phone-Number</label>
+                    
+                      <input type="number" name="number" class="form-control"  value="<%= row %>" placeholder="Enter your Phone-Number" required >
+    
+                                
+                  </div>
+                  <% }) %>
+
+                  <div class="form-group">
+                    <label for="hrlyrate"  >Date of birth </label>
+            
+                      <input type='date' class="form-control" name="dob" value="<%= records.dob %>" placeholder="Enter your date of birth" required>
+                    
+    
+                  </div>
+    
+              
+             
+                  <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                      <input type="submit" type="button" class="btn btn-info" value="Update">
+    
+                    </div>
+            </form>
+          </div>
+    
+    
+          </body>
+</html>

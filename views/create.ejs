@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+        <h4 class="shadow-lg p-3 mb-5  rounded   bg-info text-white"><%= title %></h4>
+  
+      </div>
+
+      <div class="container">
+        <div class="panel-title" style="font-weight: 900; font-size: large;">Add new Contact</div>
+        <form action="/create/add" class="form-horizontal" role="form" method="post">
+            <div class="form-group">
+                <label for="name" >Name</label>
+                
+                  <input type="text" class="form-control" name="uname" placeholder="Enter your name" required>
+                
+              </div>
+              <div class="form-group" id="form-email">
+                <label for="email" >Email</label>
+                
+                  <input type="text" class="form-control" name="email" placeholder="Enter your Email" required>
+                  <a class="btn btn-info" onclick="addEmail()" ><i class="fa fa-envelope-square"></i></a>
+                 </div>
+
+              
+                <div class="form-group" id="form-number">
+                <label for="emptype" >Phone-Number</label>
+                
+                  <input type="number" name="number" class="form-control" placeholder="Enter your Phone-Number" required>
+                  <a class="btn btn-info" onclick="addNumber()" ><i class="fa fa-phone"></i></a>
+
+                            
+              </div>
+
+              <div class="form-group">
+                <label for="hrlyrate"  >Date of birth </label>
+        
+                  <input type='date' class="form-control" name="dob" placeholder="Enter your date of birth" required>
+                
+
+              </div>
+
+          
+         
+              <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <a href="/">
+                  <input type="submit" type="button" class="btn btn-info"  value="submit">
+                 </a>
+                </div>
+              </div>
+        </form>
+
+      </div>
+
+
+      
+</body>
+
+  <script>
+function addNumber(){
+ 
+    var html = `
+     <div class="ph">
+    <label for="usr">Other Number:</label>
+  <input name="number" type="number" class="form-control" >
+  <a class="btn btn-danger" ><i class="fa fa-trash"></i></a>
+  </div
+    `;
+    
+    $('#form-number').append(html);
+}
+$(document).ready(function(){
+$(document).on('click', '.delete', function(e){ 
+     // Your Code
+     var obj = JSON.parse(JSON.stringify(e));
+    var d =  $(this).parent('.ph').remove();
+     console.log('dawdawdaw', d);
+});
+});
+ </script>
+
+ <script>
+  function addEmail(){
+ 
+ var html = `
+  <div class="ph">
+ <label for="usr">Other Email:</label>
+<input name="email" type="email" class="form-control" >
+<a class="btn btn-danger" ><i class="fa fa-trash"></i></a>
+</div
+ `;
+ 
+ $('#form-email').append(html);
+}
+$(document).ready(function(){
+$(document).on('click', '.delete', function(e){ 
+  // Your Code
+  var obj = JSON.parse(JSON.stringify(e));
+ var d =  $(this).parent('.ph').remove();
+  console.log('dawdawdaw', d);
+});
+});
+ </script>
+ 
+</html>
