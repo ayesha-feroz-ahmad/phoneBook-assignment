@@ -1,10 +1,11 @@
-# phoneBook-assignment
-Asssignment of RENTOMOJO
-Steps to run the assignment....
-step1:-update the mongodb credentials in modules/employee.js
+# RentoMojo Phonebook Assignment
 
-step2:-Run the commands npm install
+Steps to run the assignment:
 
-step3:-Run nodemon npm start to run the server
+Step 1: Update the MongoDB credentials in `modules/employee.js`
 
-step4:-The server will run on port 3000
+Step 2: Run `npm install`
+
+Step 3: Run `npm start` to start the server
+
+The server will be running on port 3000.
