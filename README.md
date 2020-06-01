@@ -7,4 +7,4 @@ step2:-Run the command npm install
 
 step3:-Run nodemon npm start to run the server
 
-step4:-localhost:3000 
+step4:-The server will run on port 3000
